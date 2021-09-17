@@ -20,20 +20,42 @@ endif
 
 call plug#begin()
 
+    " Auto-completion and lsp
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'hrsh7th/nvim-compe'
+    "Plug 'glepnir/lspsaga.nvim'
+    "Plug 'mfussenegger/nvim-jdtls'
+
+    " Tree-sitter
+    Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+    Plug 'nvim-treesitter/playground'
+
+    " Languages
 	Plug 'lervag/vimtex'
 	Plug 'bfrg/vim-cpp-modern'
 	Plug 'suoto/hdl_checker'
-	Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
-	Plug 'neomake/neomake'
+
+	"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+	
+    Plug 'neomake/neomake'
+    Plug 'sbdchd/neoformat'
+
+    " Style and aesthetics
 	Plug 'itchyny/lightline.vim'
 	Plug 'fcpg/vim-orbital'
 	Plug 'ghifarit53/tokyonight-vim'
 
+    " PlantUML stuff
+    Plug 'aklt/plantuml-syntax'
+    Plug 'tyru/open-browser.vim'
+    Plug 'weirongxu/plantuml-previewer.vim'
+
 call plug#end()
 
-call deoplete#custom#var('omni', 'input_patterns', {
-			\ 'tex': g:vimtex#re#deoplete
-			\})
+"call deoplete#custom#var('omni', 'input_patterns', {
+"			\ 'tex': g:vimtex#re#deoplete
+"			\})
+"let g:deoplete#enable_at_startup = 1
 
 let g:tokyonight_style = 'night' 
 let g:tokyonight_enable_italic = 1
@@ -49,6 +71,11 @@ let g:lightline = {
 let g:ale_completion_enabled = 1
 call neomake#configure#automake('nrwi', 500)
 
+lua require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
+
+lua << EOF
+require'lspconfig'.clangd.setup{}
+EOF
 
 syntax on
 
@@ -70,11 +97,16 @@ if (has("nvim"))
 	let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 endif
 
+""nvim_lsp.jdtls.setup{}
+
 inoremap " ""<left>
 inoremap ' ''<left>
 inoremap ( ()<left>
 inoremap [ []<left>
 inoremap {<CR> <CR>{<CR>}<ESC>O
+
+inoremap \begin{enumerate} \begin{enumerate}<CR>\end{enumerate}<ESC>O<CR>\item{}<ESC>o
+inoremap \begin{itemize} \begin{itemize}<CR>\end{itemize}<ESC>O<CR>\item{}<ESC>o
 
 inoremap {a {a}<left>
 inoremap {e {e}<left>
@@ -88,3 +120,6 @@ inoremap {m {m}<left>
 inoremap {u {u}<left>
 inoremap {t {t}<left>
 inoremap {h {h}<left>
+
+nnoremap <leader>y "+y
+nnoremap <leader>Y gg"+yG
