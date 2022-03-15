@@ -66,6 +66,10 @@ require "paq" {
     -- 'dccsillag/magma-nvim', { 'do': ':UpdateRemotePlugins' }
     -- ('dccsillag/magma-nvim', do = fn[':UpdateRemotePlugins'])
     -- 'dccsillag/magma-nvim'
+    --
+
+    -- rec utils
+    "zaid/vim-rec";
 }
 
 require('nic.lspconfig')
