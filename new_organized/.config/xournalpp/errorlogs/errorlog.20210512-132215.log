@@ -1,0 +1,38 @@
+Date: Wed May 12 13:22:15 2021
+Error: signal 11
+[bt]: (0) xournalpp(+0x1d95d2) [0x558b96f915d2]
+[bt]: (1) /usr/lib/libc.so.6(+0x3cf80) [0x7f041e23af80]
+[bt]: (2) xournalpp(_ZNK7Element7getTypeEv+0x1) [0x558b96f61be1]
+[bt]: (3) xournalpp(_ZN12DocumentView11drawElementEP6_cairoP7Element+0x8a) [0x558b96f879ca]
+[bt]: (4) xournalpp(_ZN12DocumentView9drawLayerEP6_cairoP5Layer+0x103) [0x558b96f87b73]
+[bt]: (5) xournalpp(_ZN12DocumentView8drawPageE7PageRefP6_cairobb+0x142) [0x558b96f88612]
+[bt]: (6) xournalpp(_ZN9RenderJob3runEv+0x4a9) [0x558b96e87d99]
+[bt]: (7) xournalpp(_ZN9Scheduler17jobThreadCallbackEPS_+0x14a) [0x558b96e8998a]
+[bt]: (8) /usr/lib/libglib-2.0.so.0(+0x820c1) [0x7f041f74a0c1]
+[bt]: (9) /usr/lib/libpthread.so.0(+0x9299) [0x7f041e81b299]
+[bt]: (10) /usr/lib/libc.so.6(clone+0x43) [0x7f041e2fd053]
+
+
+Try to get a better stracktrace...
+[bt] #1 xournalpp(+0x1d987b) [0x558b96f9187b]
+??:0
+[bt] #2 /usr/lib/libc.so.6(+0x3cf80) [0x7f041e23af80]
+??:0
+[bt] #3 xournalpp(_ZNK7Element7getTypeEv+0x1) [0x558b96f61be1]
+??:0
+[bt] #4 xournalpp(_ZN12DocumentView11drawElementEP6_cairoP7Element+0x8a) [0x558b96f879ca]
+??:0
+[bt] #5 xournalpp(_ZN12DocumentView9drawLayerEP6_cairoP5Layer+0x103) [0x558b96f87b73]
+??:0
+[bt] #6 xournalpp(_ZN12DocumentView8drawPageE7PageRefP6_cairobb+0x142) [0x558b96f88612]
+??:0
+[bt] #7 xournalpp(_ZN9RenderJob3runEv+0x4a9) [0x558b96e87d99]
+??:0
+[bt] #8 xournalpp(_ZN9Scheduler17jobThreadCallbackEPS_+0x14a) [0x558b96e8998a]
+??:0
+[bt] #9 /usr/lib/libglib-2.0.so.0(+0x820c1) [0x7f041f74a0c1]
+??:0
+[bt] #10 /usr/lib/libpthread.so.0(+0x9299) [0x7f041e81b299]
+??:0
+[bt] #11 /usr/lib/libc.so.6(clone+0x43) [0x7f041e2fd053]
+??:0

@@ -1,0 +1,44 @@
+Date: Sun May  9 14:49:39 2021
+Error: signal 11
+[bt]: (0) xournalpp(+0x1d95d2) [0x55e8a08355d2]
+[bt]: (1) /usr/lib/libc.so.6(+0x3cf80) [0x7fe34fcdff80]
+[bt]: (2) xournalpp(_Z16xoj_type_getNamei+0x1002) [0x55e8a083fd32]
+[bt]: (3) xournalpp(_ZNK7Element7getTypeEv+0x45) [0x55e8a0805c25]
+[bt]: (4) xournalpp(_ZN12DocumentView11drawElementEP6_cairoP7Element+0x8a) [0x55e8a082b9ca]
+[bt]: (5) xournalpp(_ZN12DocumentView9drawLayerEP6_cairoP5Layer+0x103) [0x55e8a082bb73]
+[bt]: (6) xournalpp(_ZN12DocumentView8drawPageE7PageRefP6_cairobb+0x142) [0x55e8a082c612]
+[bt]: (7) xournalpp(_ZN10PreviewJob8drawPageEi+0x14d) [0x55e8a072ae3d]
+[bt]: (8) xournalpp(_ZN10PreviewJob3runEv+0x119) [0x55e8a072af99]
+[bt]: (9) xournalpp(_ZN9Scheduler17jobThreadCallbackEPS_+0x14a) [0x55e8a072d98a]
+[bt]: (10) /usr/lib/libglib-2.0.so.0(+0x820c1) [0x7fe3511ef0c1]
+[bt]: (11) /usr/lib/libpthread.so.0(+0x9299) [0x7fe3502c0299]
+[bt]: (12) /usr/lib/libc.so.6(clone+0x43) [0x7fe34fda2053]
+
+
+Try to get a better stracktrace...
+[bt] #1 xournalpp(+0x1d987b) [0x55e8a083587b]
+??:0
+[bt] #2 /usr/lib/libc.so.6(+0x3cf80) [0x7fe34fcdff80]
+??:0
+[bt] #3 xournalpp(_Z16xoj_type_getNamei+0x1002) [0x55e8a083fd32]
+??:0
+[bt] #4 xournalpp(_ZNK7Element7getTypeEv+0x45) [0x55e8a0805c25]
+??:0
+[bt] #5 xournalpp(_ZN12DocumentView11drawElementEP6_cairoP7Element+0x8a) [0x55e8a082b9ca]
+??:0
+[bt] #6 xournalpp(_ZN12DocumentView9drawLayerEP6_cairoP5Layer+0x103) [0x55e8a082bb73]
+??:0
+[bt] #7 xournalpp(_ZN12DocumentView8drawPageE7PageRefP6_cairobb+0x142) [0x55e8a082c612]
+??:0
+[bt] #8 xournalpp(_ZN10PreviewJob8drawPageEi+0x14d) [0x55e8a072ae3d]
+??:0
+[bt] #9 xournalpp(_ZN10PreviewJob3runEv+0x119) [0x55e8a072af99]
+??:0
+[bt] #10 xournalpp(_ZN9Scheduler17jobThreadCallbackEPS_+0x14a) [0x55e8a072d98a]
+??:0
+[bt] #11 /usr/lib/libglib-2.0.so.0(+0x820c1) [0x7fe3511ef0c1]
+??:0
+[bt] #12 /usr/lib/libpthread.so.0(+0x9299) [0x7fe3502c0299]
+??:0
+[bt] #13 /usr/lib/libc.so.6(clone+0x43) [0x7fe34fda2053]
+??:0
