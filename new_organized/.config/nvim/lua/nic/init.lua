@@ -1,2 +1,3 @@
-require("nic.remap")
 require("nic.set")
+require("nic.remap")
+
