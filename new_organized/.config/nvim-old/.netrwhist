@@ -1,9 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =7
-let g:netrw_dirhist_7='/home/nic/Downloads/miau/EP1/src/br/usp/ime/mac321/ep1/ex4'
-let g:netrw_dirhist_6='/home/nic/Downloads/miau/EP1-Cansado/src/br/usp/ime/mac321/ep1/ex2'
-let g:netrw_dirhist_5='/home/nic/Downloads/miau/EP1-Cansado/src/br/usp/ime/mac321/ep1/ex1'
-let g:netrw_dirhist_4='/home/nic/poli_2021_1/imesec/rel/criptography/testing'
-let g:netrw_dirhist_3='/home/nic/poli_2021_1/laboo/lista_envio_03'
-let g:netrw_dirhist_2='/home/nic/poli_2021_1/laboo'
-let g:netrw_dirhist_1='/home/nic/.oh-my-zsh'
