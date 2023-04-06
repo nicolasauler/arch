@@ -5,6 +5,7 @@
 KEYMAP=br-abnt2
 ### /etc/X11/xorg.conf.d/00-keyboard.conf
 https://wiki.archlinux.org/title/Xorg/Keyboard_configuration
+
 [Link to configs](../../tree/main/etc/X11/xorg.conf.d/00-keyboard.conf)
 
 ## Libinput
@@ -24,6 +25,7 @@ https://github.com/wbthomason/packer.nvim
 
 ## Xorg and Urxvt
 [Xreources configs](../../tree/main/.Xresources)
+
 [Xinitrc configs](../../tree/main/.xinitrc)
 
 ## i3
@@ -37,15 +39,22 @@ https://github.com/wbthomason/packer.nvim
 
 ## Gtk
 https://wiki.archlinux.org/title/GTK
+
 [gtk configs](../../tree/main/.config/gtk-3.0)
+
 [gtk configs](../../tree/main/.gtkrc-2.0)
+
 * lxappearance
 
 ## Qt
 https://wiki.archlinux.org/title/Uniform_look_for_Qt_and_GTK_applications
+
 [qt5 configs](../../tree/main/.config/qt5ct)
+
 [qt6 configs](../../tree/main/.config/qt6ct)
+
 * qt5ct
+
 * qt6ct
 
 ## Rust
