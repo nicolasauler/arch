@@ -18,6 +18,7 @@ https://wiki.archlinux.org/title/Xorg/Keyboard_configuration
 ## Nvim
 ### Building
 https://github.com/neovim/neovim/wiki/Building-Neovim
+### Ripgrep
 ### Packer
 https://github.com/wbthomason/packer.nvim
 ### Configs
@@ -30,12 +31,27 @@ https://github.com/wbthomason/packer.nvim
 
 ## i3
 [i3 configs](../../tree/main/config/i3)
+### i3lock
+### Flameshot
 
 ## Bash
 [Bash configs](../../tree/main/.bashrc)
+### Fzf
 
 ## Polybar
 [polybar configs](../../tree/main/config/polybar)
+
+## Pulseaudio and pavucontrol
+
+## Firefox
+firefox developer
+
+* vimium
+* dark reader
+* ublock origin
+* sponsor block
+* speed controller
+* foxyproxy
 
 ## Gtk
 https://wiki.archlinux.org/title/GTK
@@ -54,9 +70,42 @@ https://wiki.archlinux.org/title/Uniform_look_for_Qt_and_GTK_applications
 [qt6 configs](../../tree/main/config/qt6ct)
 
 * qt5ct
-
 * qt6ct
 
+## Dropbox
+
+## Keepassxc
+
 ## Rust
+rust nightly
 
 ## Starship
+
+## Latex
+
+## Github
+### SSH keys
+
+## Tree
+
+## Sxiv
+
+## Doas
+
+## Zathura
+
+## virt-manager usermode - qemu/KVM
+
+## mitmproxy
+
+## nordvpn
+
+
+
+
+
+
+
+## talvez fazer
+tmux ou zellij
+ansible da vida pra automatizar tudo isso
