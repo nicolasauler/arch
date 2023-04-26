@@ -77,9 +77,14 @@ https://wiki.archlinux.org/title/Uniform_look_for_Qt_and_GTK_applications
 ## Keepassxc
 
 ## Rust
+### Starship
 rust nightly
+### nu
+### speedtest-rs
+### zellij
+### bat
+### exa
 
-## Starship
 
 ## Latex
 
@@ -99,10 +104,7 @@ rust nightly
 ## mitmproxy
 
 ## nordvpn
-
-
-
-
+### wireguard-tools
 
 
 
