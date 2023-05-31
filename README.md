@@ -82,16 +82,14 @@ rust nightly
 ### nu
 ### speedtest-rs
 ### zellij
-### bat
-### exa
-
+### cat -> bat
+### ps -> procs
+### ls -> exa
 
 ## Latex
 
 ## Github
 ### SSH keys
-
-## Tree
 
 ## Sxiv
 
@@ -101,13 +99,7 @@ rust nightly
 
 ## virt-manager usermode - qemu/KVM
 
-## mitmproxy
-
 ## nordvpn
 ### wireguard-tools
 
-
-
-## talvez fazer
-tmux ou zellij
-ansible da vida pra automatizar tudo isso
+## Disable sleep login.conf.d
