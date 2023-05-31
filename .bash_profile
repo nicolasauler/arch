@@ -4,5 +4,9 @@
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
+export PATH=$PATH:/home/nic/.local/bin
+
+export EDITOR=nvim
+
 export QT_QPA_PLATFORMTHEME=qt5ct
 . "$HOME/.cargo/env"
