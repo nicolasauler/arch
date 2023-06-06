@@ -1,77 +1,135 @@
--- Learn the keybindings, see :help lsp-zero-keybindings
--- Learn to configure LSP servers, see :help lsp-zero-api-showcase
-local lsp = require('lsp-zero')
-lsp.preset('recommended')
+--<<<<<<< HEAD
+---- Learn the keybindings, see :help lsp-zero-keybindings
+---- Learn to configure LSP servers, see :help lsp-zero-api-showcase
+--local lsp = require('lsp-zero')
+--lsp.preset('recommended')
+--
+--lsp.ensure_installed({
+--	'rust_analyzer',
+--})
+--
+---- Only define once
+--if not require'lspconfig.configs'.hdl_checker then
+--  require'lspconfig.configs'.hdl_checker = {
+--    default_config = {
+--    cmd = {"hdl_checker", "--lsp", };
+--    filetypes = {"vhdl", "verilog", "systemverilog"};
+--      root_dir = function(fname)
+--        -- will look for the .hdl_checker.config file in parent directory, a
+--        -- .git directory, or else use the current directory, in that order.
+--        local util = require'lspconfig'.util
+--        return util.root_pattern('.hdl_checker.config')(fname) or util.find_git_ancestor(fname) or util.path.dirname(fname)
+--      end;
+--      settings = {};
+--    };
+--  }
+--end
+--
+--require'lspconfig'.hdl_checker.setup{}
+--
+---- Fix Undefined global 'vim'
+--lsp.configure('lua-language-server', {
+--	settings = {
+--		Lua = {
+--			diagnostics = {
+--				globals = { 'vim' }
+--			}
+--		}
+--	}
+--})
+--
+---- Fix Undefined global 'vim'
+--lsp.configure('lua_ls', {
+--	settings = {
+--		Lua = {
+--			diagnostics = {
+--				globals = { 'vim' }
+--			}
+--		}
+--	}
+--})
+--
+--local cmp = require('cmp')
+--local cmp_select = {behavior = cmp.SelectBehavior.Select}
+--local cmp_mappings = lsp.defaults.cmp_mappings({
+--	['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
+--	['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
+--	['<C-y>'] = cmp.mapping.confirm({ select = true }),
+--	["<C-Space>"] = cmp.mapping.complete(),
+--})
+--
+--cmp_mappings['<Tab>'] = nil
+--cmp_mappings['<S-Tab>'] = nil
+--
+--lsp.setup_nvim_cmp({
+--	mapping = cmp_mappings
+--})
+--
+--lsp.set_preferences({
+--    suggest_lsp_servers = false,
+--    sign_icons = {
+--        error = 'E',
+--        warn = 'W',
+--        hint = 'H',
+--        info = 'I'
+--    }
+--=======
+---- Fix Undefined global 'vim'
+--lsp.configure('lua_ls', {
+--	settings = {
+--		Lua = {
+--			diagnostics = {
+--				globals = { 'vim' }
+--			}
+--		}
+--	}
+--})
+--
+--local cmp_select = {behavior = cmp.SelectBehavior.Select}
 
-lsp.ensure_installed({
-	'rust_analyzer',
-})
 
--- Only define once
-if not require'lspconfig.configs'.hdl_checker then
-  require'lspconfig.configs'.hdl_checker = {
-    default_config = {
-    cmd = {"hdl_checker", "--lsp", };
-    filetypes = {"vhdl", "verilog", "systemverilog"};
-      root_dir = function(fname)
-        -- will look for the .hdl_checker.config file in parent directory, a
-        -- .git directory, or else use the current directory, in that order.
-        local util = require'lspconfig'.util
-        return util.root_pattern('.hdl_checker.config')(fname) or util.find_git_ancestor(fname) or util.path.dirname(fname)
-      end;
-      settings = {};
-    };
-  }
-end
+local lsp = require('lsp-zero').preset({})
 
-require'lspconfig'.hdl_checker.setup{}
+lsp.on_attach(function(client, bufnr)
+  lsp.default_keymaps({buffer = bufnr})
+end)
 
--- Fix Undefined global 'vim'
-lsp.configure('lua-language-server', {
-	settings = {
-		Lua = {
-			diagnostics = {
-				globals = { 'vim' }
-			}
-		}
-	}
-})
+-- (Optional) Configure lua language server for neovim
+require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
 
--- Fix Undefined global 'vim'
-lsp.configure('lua_ls', {
-	settings = {
-		Lua = {
-			diagnostics = {
-				globals = { 'vim' }
-			}
-		}
-	}
-})
+lsp.setup()
 
+-- You need to setup `cmp` after lsp-zero
 local cmp = require('cmp')
-local cmp_select = {behavior = cmp.SelectBehavior.Select}
-local cmp_mappings = lsp.defaults.cmp_mappings({
-	['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-	['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-	['<C-y>'] = cmp.mapping.confirm({ select = true }),
-	["<C-Space>"] = cmp.mapping.complete(),
-})
+local cmp_action = require('lsp-zero').cmp_action()
 
-cmp_mappings['<Tab>'] = nil
-cmp_mappings['<S-Tab>'] = nil
+require('luasnip.loaders.from_vscode').lazy_load()
 
-lsp.setup_nvim_cmp({
-	mapping = cmp_mappings
-})
+cmp.setup({
+  sources = {
+    {name = 'path'},
+    {name = 'nvim_lsp'},
+    {name = 'buffer', keyword_length = 3},
+    {name = 'luasnip', keyword_length = 2},
+  },
+  mapping = {
+    -- `Enter` key to confirm completion
+    ['<C-y>'] = cmp.mapping.confirm({select = true}),
 
-lsp.set_preferences({
-    suggest_lsp_servers = false,
-    sign_icons = {
-        error = 'E',
-        warn = 'W',
-        hint = 'H',
-        info = 'I'
-    }
+    -- Ctrl+Space to trigger completion menu
+    ['<C-Space>'] = cmp.mapping.complete(),
+
+--  ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
+--  ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
+
+    -- Navigate between snippet placeholder
+    ['<C-f>'] = cmp_action.luasnip_jump_forward(),
+    ['<C-b>'] = cmp_action.luasnip_jump_backward(),
+
+    ['<Tab>'] = nil,
+    ['<S-Tab>'] = nil,
+
+  }
 })
 
 lsp.on_attach(function(client, bufnr)
@@ -94,4 +152,3 @@ lsp.setup()
 vim.diagnostic.config({
 	virtual_text = true
 })
-
