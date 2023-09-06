@@ -37,6 +37,28 @@ dap.configurations.c = {
   },
 }
 
+-- choose whether to use an executable or attach to a running process
+dap.configurations.rust = {
+    {
+        name = "Launch file",
+        type = "codelldb",
+        request = "launch",
+        program = function()
+        return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+        end,
+        cwd = '${workspaceFolder}',
+        stopOnEntry = false,
+    },
+    {
+        name = "Attach to running process",
+        type = "codelldb",
+        request = "attach",
+        pid = require("dap.utils").pick_process,
+        cwd = '${workspaceFolder}',
+        stopOnEntry = false,
+    },
+}
+
 require('dap-go').setup {
   delve = {
     -- the path to the executable dlv which will be used for debugging.

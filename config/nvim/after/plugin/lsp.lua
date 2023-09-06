@@ -7,6 +7,18 @@ end)
 -- (Optional) Configure lua language server for neovim
 require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
 
+-- config arduino language server
+local MY_FQBN = "esp32:esp32:esp32doit-devkit-v1"
+require('lspconfig').arduino_language_server.setup {
+    cmd = {
+        "arduino-language-server",
+        "-cli-config",
+        "/home/nic/.arduino15/arduino-cli.yaml",
+        "-fqbn",
+        MY_FQBN,
+    }
+}
+
 lsp.setup()
 
 -- You need to setup `cmp` after lsp-zero

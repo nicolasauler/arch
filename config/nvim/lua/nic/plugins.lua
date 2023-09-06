@@ -103,4 +103,6 @@ return {
         ft = { "markdown" },
     },
 
+    "lewis6991/gitsigns.nvim",
+
 }
