@@ -1,5 +1,4 @@
 return {
-
     {
         "ellisonleao/gruvbox.nvim",
         lazy = false,    -- make sure we load this during startup if it is your main colorscheme
@@ -10,20 +9,20 @@ return {
         end,
     },
 
-
     {
         'nvim-telescope/telescope.nvim',
-        tag = '0.1.1',
-        -- or                              , branch = '0.1.1',
+        tag = '0.1.5',
         dependencies = { 'nvim-lua/plenary.nvim' }
     },
 
+    "nvim-lua/plenary.nvim",
     "gbprod/yanky.nvim",
 
     {
         "folke/noice.nvim",
         event = "VeryLazy",
         opts = {
+            -- add any options here
         },
         dependencies = {
             -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
@@ -50,39 +49,35 @@ return {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate"
     },
+    { 'nvim-treesitter/nvim-treesitter-textobjects' },
+    { 'nvim-treesitter/nvim-treesitter-refactor' },
     { 'nvim-treesitter/playground' },
     { 'nvim-treesitter/nvim-treesitter-context' },
 
     "theprimeagen/harpoon",
     "mbbill/undotree",
     "tpope/vim-fugitive",
+    "lewis6991/gitsigns.nvim",
+    "ThePrimeagen/git-worktree.nvim",
 
     {
-        'VonHeikemen/lsp-zero.nvim',
-        branch = 'v2.x',
-        dependencies = {
-            -- LSP Support
-            { 'neovim/nvim-lspconfig' }, -- Required
-            {
-                -- Optional
-                'williamboman/mason.nvim',
-                build = function()
-                    pcall(vim.cmd, 'MasonUpdate')
-                end,
-            },
-            { 'williamboman/mason-lspconfig.nvim' }, -- Optional
-
-            -- Autocompletion
-            { 'hrsh7th/nvim-cmp' },             -- Required
-            { 'hrsh7th/cmp-nvim-lsp' },         -- Required
-            { 'L3MON4D3/LuaSnip' },             -- Required
-            { 'hrsh7th/cmp-buffer' },           -- Optional
-            { 'hrsh7th/cmp-path' },             -- Optional
-            { 'saadparwaiz1/cmp_luasnip' },     -- Optional
-            { 'hrsh7th/cmp-nvim-lua' },         -- Optional
-            { 'rafamadriz/friendly-snippets' }, -- Optional
-        }
+	'williamboman/mason.nvim',
+	build = function()
+	    pcall(vim.cmd, 'MasonUpdate')
+	end,
     },
+    'williamboman/mason-lspconfig.nvim',
+    { 'VonHeikemen/lsp-zero.nvim', branch = 'v3.x'},
+    'neovim/nvim-lspconfig',
+    'hrsh7th/nvim-cmp',
+    'hrsh7th/cmp-nvim-lsp',
+    'L3MON4D3/LuaSnip',
+    'hrsh7th/cmp-buffer',
+    'hrsh7th/cmp-path',
+    'saadparwaiz1/cmp_luasnip',
+    'hrsh7th/cmp-nvim-lua',
+    'rafamadriz/friendly-snippets',
+
     {
         "mfussenegger/nvim-dap",
         "jay-babu/mason-nvim-dap.nvim",
@@ -96,13 +91,11 @@ return {
     "github/copilot.vim",
     "lervag/vimtex",
 
-    {
-        "iamcco/markdown-preview.nvim",
-        build = "cd app && npm install",
-        init = function() vim.g.mkdp_filetypes = { "markdown" } end,
-        ft = { "markdown" },
-    },
+    { "ellisonleao/glow.nvim", config = true, cmd = "Glow" },
 
-    "lewis6991/gitsigns.nvim",
+    "tpope/vim-dadbod",
+    "kristijanhusak/vim-dadbod-ui",
+    "kristijanhusak/vim-dadbod-completion",
 
+    "rest-nvim/rest.nvim"
 }

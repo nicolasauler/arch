@@ -1,5 +1,7 @@
 vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
 
+require('git-worktree').setup()
+
 require('gitsigns').setup {
     on_attach = function(bufnr)
         local gs = package.loaded.gitsigns
