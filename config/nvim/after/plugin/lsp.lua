@@ -48,6 +48,17 @@ require('lspconfig').arduino_language_server.setup {
     }
 }
 
+require('lspconfig').nil_ls.setup {
+    settings = {
+        ['nil'] = {
+            testSetting = 42,
+            formatting = {
+                command = { "nixpkgs-fmt" },
+            },
+        },
+    },
+}
+
 lsp_zero.setup()
 
 -- You need to setup `cmp` after lsp-zero
@@ -87,8 +98,8 @@ cmp.setup.filetype({ 'sql', 'mysql' }, {
     sources = {
         { name = 'path' },
         { name = 'nvim_lsp' },
-        { name = 'buffer',  keyword_length = 3 },
-        { name = 'luasnip', keyword_length = 2 },
+        { name = 'buffer',               keyword_length = 3 },
+        { name = 'luasnip',              keyword_length = 2 },
         { name = 'vim-dadbod-completion' },
     },
 })
