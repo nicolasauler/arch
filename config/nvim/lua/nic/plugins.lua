@@ -1,7 +1,6 @@
 return {
     {
         "ellisonleao/gruvbox.nvim",
-        lazy = false,    -- make sure we load this during startup if it is your main colorscheme
         priority = 1000, -- make sure to load this before all the other start plugins
         config = function()
             -- load the colorscheme here
@@ -61,13 +60,13 @@ return {
     "ThePrimeagen/git-worktree.nvim",
 
     {
-	'williamboman/mason.nvim',
-	build = function()
-	    pcall(vim.cmd, 'MasonUpdate')
-	end,
+        'williamboman/mason.nvim',
+        build = function()
+            pcall(vim.cmd, 'MasonUpdate')
+        end,
     },
     'williamboman/mason-lspconfig.nvim',
-    { 'VonHeikemen/lsp-zero.nvim', branch = 'v3.x'},
+    { 'VonHeikemen/lsp-zero.nvim', branch = 'v3.x' },
     'neovim/nvim-lspconfig',
     'hrsh7th/nvim-cmp',
     'hrsh7th/cmp-nvim-lsp',
@@ -84,6 +83,8 @@ return {
         "theHamsta/nvim-dap-virtual-text",
         "nvim-telescope/telescope-dap.nvim",
         "rcarriga/nvim-dap-ui",
+        "nvim-neotest/nvim-nio",
+        { "folke/neodev.nvim", opts = {}},
         "leoluz/nvim-dap-go",
         "mfussenegger/nvim-dap-python",
     },
@@ -91,11 +92,24 @@ return {
     "github/copilot.vim",
     "lervag/vimtex",
 
-    { "ellisonleao/glow.nvim", config = true, cmd = "Glow" },
+    { "ellisonleao/glow.nvim",     config = true,  cmd = "Glow" },
 
     "tpope/vim-dadbod",
     "kristijanhusak/vim-dadbod-ui",
     "kristijanhusak/vim-dadbod-completion",
 
-    "rest-nvim/rest.nvim"
+    --is currently breaking everything
+    --"rest-nvim/rest.nvim",
+
+    {
+        "michaelrommel/nvim-silicon",
+        lazy = true,
+        cmd = "Silicon",
+        config = function()
+            require("silicon").setup({
+                -- Configuration here, or leave empty to use defaults
+                font = "InconsolataGo Nerd Font=34;Noto Emoji=34"
+            })
+        end
+    }
 }

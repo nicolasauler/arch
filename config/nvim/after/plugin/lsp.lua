@@ -1,16 +1,7 @@
----- Fix Undefined global 'vim'
---lsp.configure('lua_ls', {
---	settings = {
---		Lua = {
---			diagnostics = {
---				globals = { 'vim' }
---			}
---		}
---	}
---})
---
---local cmp_select = {behavior = cmp.SelectBehavior.Select}
-
+require("neodev").setup({
+  library = { plugins = { "nvim-dap-ui" }, types = true },
+  ...
+})
 
 local lsp_zero = require('lsp-zero').preset({})
 
@@ -25,8 +16,10 @@ require('mason-lspconfig').setup({
         'bashls',
         'clangd',
         'lua_ls',
+        --'nil_ls',
         'pyright',
         'rust_analyzer',
+        'yamlls',
     },
     handlers = {
         lsp_zero.default_setup,
@@ -58,6 +51,8 @@ require('lspconfig').nil_ls.setup {
         },
     },
 }
+
+require('lspconfig').yamlls.setup {}
 
 lsp_zero.setup()
 
